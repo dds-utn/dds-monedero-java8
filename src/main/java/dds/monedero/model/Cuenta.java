@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import dds.monedero.exceptions.MaximaCantidadDepositosException;
 import dds.monedero.exceptions.MaximoExtraccionDiarioException;
@@ -31,7 +30,7 @@ public class Cuenta {
 	}
 
 	public void inicializar() {
-		this.movimientos = new ArrayList<Movimiento>();
+		this.movimientos = new ArrayList<>();
 	}
 
 	// ********************************************************
