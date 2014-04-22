@@ -1,20 +1,21 @@
 package dds.monedero.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class Movimiento {
   private LocalDate fecha;
-  private BigDecimal monto;
+  //En ningún lenguaje de programación usen jamás doubles para modelar dinero en el mundo real
+  //siempre usen numeros de precision arbitraria, como BigDecimal en Java y similares
+  private double monto;
   private boolean esDeposito;
 
-  public Movimiento(LocalDate fecha, BigDecimal monto, boolean esDeposito) {
+  public Movimiento(LocalDate fecha, double monto, boolean esDeposito) {
     this.fecha = fecha;
     this.monto = monto;
     this.esDeposito = esDeposito;
   }
 
-  public BigDecimal getMonto() {
+  public double getMonto() {
     return monto;
   }
 
@@ -47,11 +48,11 @@ public class Movimiento {
     cuenta.agregarMovimiento(fecha, monto, esDeposito);
   }
 
-  public BigDecimal calcularValor(Cuenta cuenta) {
+  public double calcularValor(Cuenta cuenta) {
     if (esDeposito) {
-      return cuenta.getSaldo().add(getMonto());
+      return cuenta.getSaldo() + getMonto();
     } else {
-      return cuenta.getSaldo().subtract(getMonto());
+      return cuenta.getSaldo() - getMonto();
     }
   }
 }
