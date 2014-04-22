@@ -23,14 +23,9 @@ public class MonederoTest {
 		cuenta.poner(new BigDecimal(1500));
 	}
 
-	@Test
+	@Test(expected = MontoNegativoException.class)
 	public void PonerMontoNegativo() {
-		try {
-			cuenta.poner(new BigDecimal(-1500));
-		} catch (MontoNegativoException ex) {
-
-		}
-
+		cuenta.poner(new BigDecimal(-1500));
 	}
 
 	@Test
@@ -40,46 +35,29 @@ public class MonederoTest {
 		cuenta.poner(new BigDecimal(1900));
 	}
 
-	@Test
+	@Test(expected = MaximaCantidadDepositosException.class)
 	public void MasDeTresDepositos() {
-		try {
-			cuenta.poner(new BigDecimal(1500));
-			cuenta.poner(new BigDecimal(456));
-			cuenta.poner(new BigDecimal(1900));
-			cuenta.poner(new BigDecimal(245));
-		} catch (MaximaCantidadDepositosException ex) {
-
-		}
-
+		cuenta.poner(new BigDecimal(1500));
+		cuenta.poner(new BigDecimal(456));
+		cuenta.poner(new BigDecimal(1900));
+		cuenta.poner(new BigDecimal(245));
 	}
 
-	@Test
+	@Test(expected = SaldoMenorException.class)
 	public void ExtraerMasQueElSaldo() {
-		try {
-			cuenta.setSaldo(new BigDecimal(90));
-			cuenta.sacar(new BigDecimal(1001));
-		} catch (SaldoMenorException ex) {
-
-		}
+		cuenta.setSaldo(new BigDecimal(90));
+		cuenta.sacar(new BigDecimal(1001));
 	}
 
-	@Test
+	@Test(expected = MaximoExtraccionDiarioException.class)
 	public void ExtraerMasDe1000() {
-		try {
-			cuenta.setSaldo(new BigDecimal(5000));
-			cuenta.sacar(new BigDecimal(1001));
-		} catch (MaximoExtraccionDiarioException ex) {
-
-		}
+		cuenta.setSaldo(new BigDecimal(5000));
+		cuenta.sacar(new BigDecimal(1001));
 	}
 
-	@Test
+	@Test(expected = MontoNegativoException.class)
 	public void ExtraerMontoNegativo() {
-		try {
-			cuenta.sacar(new BigDecimal(-500));
-		} catch (MontoNegativoException ex) {
-
-		}
+		cuenta.sacar(new BigDecimal(-500));
 	}
 
 }
