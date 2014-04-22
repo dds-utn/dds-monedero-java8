@@ -8,18 +8,18 @@ public class Movimiento {
   private BigDecimal monto;
   private boolean esDeposito;
 
+  public Movimiento(LocalDate fecha, BigDecimal monto, boolean esDeposito) {
+    this.fecha = fecha;
+    this.monto = monto;
+    this.esDeposito = esDeposito;
+  }
+
   public BigDecimal getMonto() {
     return monto;
   }
 
   public LocalDate getFecha() {
     return fecha;
-  }
-
-  public Movimiento(LocalDate fecha, BigDecimal monto, boolean esDeposito) {
-    this.fecha = fecha;
-    this.monto = monto;
-    this.esDeposito = esDeposito;
   }
 
   public boolean fueDepositado(LocalDate fecha) {

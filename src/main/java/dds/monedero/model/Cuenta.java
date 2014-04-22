@@ -13,20 +13,14 @@ import dds.monedero.exceptions.SaldoMenorException;
 public class Cuenta {
 
   private BigDecimal saldo = new BigDecimal(0);
-  private List<Movimiento> movimientos;
+  private List<Movimiento> movimientos = new ArrayList<>();
 
   public Cuenta() {
     saldo = new BigDecimal(0);
-    inicializar();
   }
 
   public Cuenta(double montoInicial) {
     saldo = new BigDecimal(montoInicial);
-    inicializar();
-  }
-
-  public void inicializar() {
-    movimientos = new ArrayList<>();
   }
 
   public void setMovimientos(List<Movimiento> movimientos) {
