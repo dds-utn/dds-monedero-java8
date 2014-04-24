@@ -12,7 +12,6 @@ public class Extraccion extends Movimiento {
     return cuenta.getSaldo() - getMonto();
   }
 
-  @Override
   public boolean isExtraccion() {
     return true;
   }
