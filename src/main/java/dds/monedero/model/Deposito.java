@@ -8,4 +8,8 @@ public class Deposito extends Movimiento {
     super(fecha, monto, true);
   }
 
+  public double calcularValor(Cuenta cuenta) {
+    return cuenta.getSaldo() + getMonto();
+  }
+
 }
