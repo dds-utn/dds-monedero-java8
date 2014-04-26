@@ -9,6 +9,7 @@ public abstract class Movimiento {
   private double monto;
   private boolean esDeposito;
 
+  //TODO sacar el booleano de este constructor
   public Movimiento(LocalDate fecha, double monto, boolean esDeposito) {
     this.fecha = fecha;
     this.monto = monto;
@@ -23,6 +24,7 @@ public abstract class Movimiento {
     return fecha;
   }
 
+  //FIXME esto tambien esta feito
   public boolean fueDepositado(LocalDate fecha) {
     return isDeposito() && esDeLaFecha(fecha);
   }
@@ -45,7 +47,7 @@ public abstract class Movimiento {
 
   public void agregateA(Cuenta cuenta) {
     cuenta.setSaldo(calcularValor(cuenta));
-    cuenta.agregarMovimiento(fecha, monto, esDeposito);
+    cuenta.agregarMovimiento(this);
   }
 
   public abstract double calcularValor(Cuenta cuenta);
