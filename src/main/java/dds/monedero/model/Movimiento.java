@@ -40,7 +40,7 @@ public class Movimiento {
   }
 
   public boolean isExtraccion() {
-    return esDeposito;
+    return !esDeposito;
   }
 
   public void agregateA(Cuenta cuenta) {
