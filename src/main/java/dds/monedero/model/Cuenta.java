@@ -29,20 +29,28 @@ public class Cuenta {
   public void poner(double cuanto) {
     validarMontoPositivo(cuanto);
 
-    if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {
-      throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
-    }
+    validarCantidadDepositosDiarios();
 
     new Movimiento(LocalDate.now(), cuanto, true).agregateA(this);
   }
 
+  private void validarCantidadDepositosDiarios() {
+    if (getMovimientos().stream().filter(movimiento -> movimiento.isDeposito()).count() >= 3) {
+      throw new MaximaCantidadDepositosException("Ya excedio los " + 3 + " depositos diarios");
+    }
+  }
+
   public void sacar(double cuanto) {
     validarMontoPositivo(cuanto);
+    validarMontoExtraccion(cuanto);
+    validarLimite(cuanto);
+    new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
+  }
+
+  private void validarMontoExtraccion(double cuanto) {
     if (getSaldo() - cuanto < 0) {
       throw new SaldoMenorException("No puede sacar mas de " + getSaldo() + " $");
     }
-    validarLimite(cuanto);
-    new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
   }
 
   private void validarLimite(double cuanto) {
