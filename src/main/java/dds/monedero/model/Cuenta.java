@@ -44,14 +44,14 @@ public class Cuenta {
   public void poner(double cuanto) {
     validarMontoPositivo(cuanto);
     validarCantidadDepositosDiarios();
-    new Deposito(LocalDate.now(), cuanto, true).agregateA(this);
+    new Deposito(LocalDate.now(), cuanto).agregateA(this);
   }
 
   public void sacar(double cuanto) {
     validarMontoPositivo(cuanto);
     validarMontoExtraccion(cuanto);
     validarLimite(cuanto);
-    new Extraccion(LocalDate.now(), cuanto, false).agregateA(this);
+    new Extraccion(LocalDate.now(), cuanto).agregateA(this);
   }
 
   public void setSaldo(double saldo) {
