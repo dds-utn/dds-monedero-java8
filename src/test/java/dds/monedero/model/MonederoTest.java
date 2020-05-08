@@ -18,7 +18,7 @@ public class MonederoTest {
   }
 
   @Test
-  public void Poner() {
+  public void PonerUnSoloDeposito() {
     cuenta.poner(1500);
     Assert.assertEquals(cuenta.getSaldo(), 1500, 0);
   }
@@ -29,7 +29,7 @@ public class MonederoTest {
   }
 
   @Test
-  public void TresDepositos() {
+  public void PonerTresDepositos() {
     cuenta.poner(1500);
     cuenta.poner(456);
     cuenta.poner(1900);
@@ -37,7 +37,7 @@ public class MonederoTest {
   }
 
   @Test(expected = MaximaCantidadDepositosException.class)
-  public void MasDeTresDepositos() {
+  public void PonerMasDeTresDepositos() {
     cuenta.poner(1500);
     cuenta.poner(456);
     cuenta.poner(1900);
