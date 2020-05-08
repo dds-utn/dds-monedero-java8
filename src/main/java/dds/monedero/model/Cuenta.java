@@ -34,7 +34,7 @@ public class Cuenta {
         .sum();
   }
 
-  public List<Movimiento> getMovimientos() {
+  public List<Movimiento> getMovimientos() {    
     return movimientos;
   }
 
@@ -53,10 +53,6 @@ public class Cuenta {
     validarMontoExtraccion(cuanto);
     validarLimite(cuanto);
     new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
-  }
-
-  public void setMovimientos(List<Movimiento> movimientos) {
-    this.movimientos = movimientos;
   }
 
   public void setSaldo(double saldo) {
