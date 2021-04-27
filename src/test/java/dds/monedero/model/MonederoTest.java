@@ -1,61 +1,68 @@
 package dds.monedero.model;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import dds.monedero.exceptions.MaximaCantidadDepositosException;
 import dds.monedero.exceptions.MaximoExtraccionDiarioException;
 import dds.monedero.exceptions.MontoNegativoException;
 import dds.monedero.exceptions.SaldoMenorException;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MonederoTest {
   private Cuenta cuenta;
 
-  @Before
-  public void init() {
+  @BeforeEach
+  void init() {
     cuenta = new Cuenta();
   }
 
   @Test
-  public void Poner() {
+  void Poner() {
     cuenta.poner(1500);
-  }
-
-  @Test(expected = MontoNegativoException.class)
-  public void PonerMontoNegativo() {
-    cuenta.poner(-1500);
   }
 
   @Test
-  public void TresDepositos() {
+  void PonerMontoNegativo() {
+    assertThrows(MontoNegativoException.class, () -> cuenta.poner(-1500));
+  }
+
+  @Test
+  void TresDepositos() {
     cuenta.poner(1500);
     cuenta.poner(456);
     cuenta.poner(1900);
   }
 
-  @Test(expected = MaximaCantidadDepositosException.class)
-  public void MasDeTresDepositos() {
-    cuenta.poner(1500);
-    cuenta.poner(456);
-    cuenta.poner(1900);
-    cuenta.poner(245);
+  @Test
+  void MasDeTresDepositos() {
+    assertThrows(MaximaCantidadDepositosException.class, () -> {
+          cuenta.poner(1500);
+          cuenta.poner(456);
+          cuenta.poner(1900);
+          cuenta.poner(245);
+    });
   }
 
-  @Test(expected = SaldoMenorException.class)
-  public void ExtraerMasQueElSaldo() {
-    cuenta.setSaldo(90);
-    cuenta.sacar(1001);
+  @Test
+  void ExtraerMasQueElSaldo() {
+    assertThrows(SaldoMenorException.class, () -> {
+          cuenta.setSaldo(90);
+          cuenta.sacar(1001);
+    });
   }
 
-  @Test(expected = MaximoExtraccionDiarioException.class)
+  @Test
   public void ExtraerMasDe1000() {
-    cuenta.setSaldo(5000);
-    cuenta.sacar(1001);
+    assertThrows(MaximoExtraccionDiarioException.class, () -> {
+      cuenta.setSaldo(5000);
+      cuenta.sacar(1001);
+    });
   }
 
-  @Test(expected = MontoNegativoException.class)
+  @Test
   public void ExtraerMontoNegativo() {
-    cuenta.sacar(-500);
+    assertThrows(MontoNegativoException.class, () -> cuenta.sacar(-500));
   }
 
 }
