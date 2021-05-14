@@ -4,8 +4,9 @@ import java.time.LocalDate;
 
 public class Movimiento {
   private LocalDate fecha;
-  //En ningún lenguaje de programación usen jamás doubles para modelar dinero en el mundo real
-  //siempre usen numeros de precision arbitraria, como BigDecimal en Java y similares
+  // Nota: En ningún lenguaje de programación usen jamás doubles (es decir, números con punto flotante) para modelar dinero en el mundo real.
+  // En su lugar siempre usen numeros de precision arbitraria o punto fijo, como BigDecimal en Java y similares
+  // De todas formas, NO es necesario modificar ésto como parte de este ejercicio. 
   private double monto;
   private boolean esDeposito;
 
