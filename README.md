@@ -10,7 +10,7 @@ Pero hay algunos problemas: por un lado el código no está muy bien testeado, y
 
 Tenés seis tareas: 
 
- 1. :fork_and_knife: Hacé un _fork_ de este repositorio (presionando desde Github el botón Fork)
+ 1. :fork_and_knife: Hacé un repositorio usando este template (presionando desde Github el botón _use this template_)
  2. :arrow_down: Descargalo y construí el proyecto, utilizando `maven`
  2. :nose: Identificá y anotá todos los _code smells_ que encuentres 
  3. :test_tube: Agregá los tests faltantes y mejorá los existentes. 
