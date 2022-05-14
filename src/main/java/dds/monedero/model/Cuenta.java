@@ -22,10 +22,6 @@ public class Cuenta {
     saldo = montoInicial;
   }
 
-  public void setMovimientos(List<Movimiento> movimientos) {
-    this.movimientos = movimientos;
-  }
-
   public void poner(double cuanto) {
     validarMontoPositivo(cuanto);
 
