@@ -26,13 +26,13 @@ public class Cuenta {
     validarMontoPositivo(cuanto);
 
     validarNoSuperaCantidadDeDepositosDiarios();
-    new Movimiento(LocalDate.now(), cuanto, true).agregateA(this);
+    new Deposito(LocalDate.now(), cuanto, true).agregateA(this);
   }
   public void sacar(double cuanto) {
     validarMontoPositivo(cuanto);
     validarSaldoSuficiente(cuanto);
     validarExtraccionNoSuperaMontoDiario(cuanto);
-    new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
+    new Extraccion(LocalDate.now(), cuanto, false).agregateA(this);
   }
 
   private void validarExtraccionNoSuperaMontoDiario(double cuanto) {
