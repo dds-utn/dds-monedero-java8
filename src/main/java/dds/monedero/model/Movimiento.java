@@ -44,10 +44,8 @@ public abstract class Movimiento {
   }
 
   public double calcularValor(Cuenta cuenta) {
-    if (isDeposito()) {
-      return cuenta.getSaldo() + getMonto();
-    } else {
-      return cuenta.getSaldo() - getMonto();
-    }
+    return cuenta.getSaldo() + getMontoOperacion();
   }
+
+  protected abstract double getMontoOperacion();
 }
