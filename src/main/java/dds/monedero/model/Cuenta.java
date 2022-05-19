@@ -36,9 +36,7 @@ public class Cuenta {
 
   public void sacar(double cuanto) {
     validarMontoNegativoEnOperacion(cuanto);
-    if (getSaldo() - cuanto < 0) {
-      throw new SaldoMenorException("No puede sacar mas de " + getSaldo() + " $");
-    }
+    validarExtraccionNoSupereMontoActual(cuanto);
     double montoExtraidoHoy = getMontoExtraidoA(LocalDate.now());
     double limite = 1000 - montoExtraidoHoy;
     if (cuanto > limite) {
@@ -46,6 +44,12 @@ public class Cuenta {
           + " diarios, límite: " + limite);
     }
     new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
+  }
+
+  private void validarExtraccionNoSupereMontoActual(double cuanto) {
+    if (getSaldo() - cuanto < 0) {
+      throw new SaldoMenorException("No puede sacar mas de " + getSaldo() + " $");
+    }
   }
 
   public void agregarMovimiento(LocalDate fecha, double cuanto, boolean esDeposito) {
