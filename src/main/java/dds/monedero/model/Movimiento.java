@@ -50,7 +50,7 @@ public class Movimiento {
   }
 
   public double calcularValor(Cuenta cuenta) {
-    if (esDeposito) {
+    if (isDeposito()) {
       return cuenta.getSaldo() + getMonto();
     } else {
       return cuenta.getSaldo() - getMonto();
