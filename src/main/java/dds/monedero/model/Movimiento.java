@@ -36,7 +36,9 @@ public abstract class Movimiento {
 
   public abstract boolean isDeposito();
 
-  public abstract boolean isExtraccion();
+  public boolean isExtraccion() {
+      return !isDeposito();
+  }
 
   public void agregateA(Cuenta cuenta) {
     cuenta.setSaldo(calcularValor(cuenta));

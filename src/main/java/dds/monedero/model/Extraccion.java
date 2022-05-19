@@ -13,11 +13,6 @@ public class Extraccion extends Movimiento {
     }
 
     @Override
-    public boolean isExtraccion() {
-        return true;
-    }
-
-    @Override
     protected double getMontoOperacion() {
         return getMonto() * -1;
     }
