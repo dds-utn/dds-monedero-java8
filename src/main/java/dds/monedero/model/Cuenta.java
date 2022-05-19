@@ -28,7 +28,7 @@ public class Cuenta {
     validarMontoNegativoEnOperacion(cuanto);
     validacionCantidadDepositosDiarios();
 
-    new Movimiento(LocalDate.now(), cuanto, true).agregateA(this);
+    new Deposito(LocalDate.now(), cuanto, true).agregateA(this);
   }
 
   private void validacionCantidadDepositosDiarios() {
@@ -41,7 +41,7 @@ public class Cuenta {
     validarMontoNegativoEnOperacion(cuanto);
     validarExtraccionNoSupereMontoActual(cuanto);
     validarExtraccionNoSupereMaximoDiario(cuanto);
-    new Movimiento(LocalDate.now(), cuanto, false).agregateA(this);
+    new Extraccion(LocalDate.now(), cuanto, false).agregateA(this);
   }
 
   private void validarExtraccionNoSupereMaximoDiario(double cuanto) {
