@@ -34,12 +34,10 @@ public abstract class Movimiento {
     return this.fecha.equals(fecha);
   }
 
-  public boolean isDeposito() {
-    return esDeposito();
-  }
+  public abstract boolean isDeposito();
 
   public boolean isExtraccion() {
-    return !esDeposito();
+    return !isDeposito();
   }
 
   public void agregateA(Cuenta cuenta) {
@@ -48,5 +46,4 @@ public abstract class Movimiento {
   }
 
   public abstract double calcularValor(Cuenta cuenta);
-  public abstract boolean esDeposito() ;
 }

@@ -13,7 +13,7 @@ public class Extraccion extends Movimiento{
     }
 
     @Override
-    public boolean esDeposito() {
+    public boolean isDeposito() {
         return false;
     }
 }
