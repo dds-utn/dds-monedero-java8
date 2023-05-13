@@ -35,6 +35,8 @@ public class MonederoTest {
     cuenta.poner(1500);
     cuenta.poner(456);
     cuenta.poner(1900);
+    assertEquals(3856, cuenta.getSaldo());
+    assertEquals(3, cuenta.getMovimientos().size());
   }
 
   @Test
