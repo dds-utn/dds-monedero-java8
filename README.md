@@ -21,7 +21,7 @@ Tenés seis tareas:
 
 ### Tecnologías usadas
 
-* Java 8.
+* Java 17.
 * JUnit 5. :warning: La versión 5 de JUnit es la más nueva del framework y presenta algunas diferencias respecto a la versión "clásica" (JUnit 4). Para mayores detalles, ver:
     *  [Apunte de herramientas](https://docs.google.com/document/d/1VYBey56M0UU6C0689hAClAvF9ILE6E7nKIuOqrRJnWQ/edit#heading=h.dnwhvummp994)
     *  [Entrada de Blog (en inglés)](https://www.baeldung.com/junit-5-migration)
