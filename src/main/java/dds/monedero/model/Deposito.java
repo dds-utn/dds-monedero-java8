@@ -14,6 +14,11 @@ public class Deposito extends Movimiento {
     }
 
     @Override
+    public double getMontoExtraccion() {
+        return 0;
+    }
+
+    @Override
     public boolean isDeposito() {
         return true;
     }
