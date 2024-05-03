@@ -23,9 +23,8 @@ public class Cuenta {
   }
 
   public void poner(double cuanto) {
-    validarMontoPositivo(cuanto);
-
     validarNoSuperaCantidadDeDepositosDiarios();
+    validarMontoPositivo(cuanto);
     new Deposito(LocalDate.now(), cuanto).agregateA(this);
   }
   public void sacar(double cuanto) {

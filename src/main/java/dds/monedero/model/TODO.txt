@@ -1,0 +1,6 @@
+1. Duplicated Code en poner y sacar de Movimiento (ifs y última expresión) 🆗
+2. Long Methods en poner y sacar 🆗
+3. Dead Code setMovimiento 🆗
+4. TypeTest en las llamadas de isDeposito 🆗
+5. Long Parameter List / Primitive Obsession en agregarMovimiento 🆗
+
