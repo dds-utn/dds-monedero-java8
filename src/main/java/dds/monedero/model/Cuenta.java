@@ -45,8 +45,8 @@ public class Cuenta {
     if (getSaldo() - cuanto < 0) {
       throw new SaldoMenorException("No puede sacar mas de " + getSaldo() + " $");
     }
-    double montoExtraidoHoy = getMontoExtraidoA(LocalDate.now());
-    double limite = 1000 - montoExtraidoHoy;
+    var montoExtraidoHoy = getMontoExtraidoA(LocalDate.now());
+    var limite = 1000 - montoExtraidoHoy;
     if (cuanto > limite) {
       throw new MaximoExtraccionDiarioException("No puede extraer mas de $ " + 1000
           + " diarios, límite: " + limite);
@@ -55,7 +55,7 @@ public class Cuenta {
   }
 
   public void agregarMovimiento(LocalDate fecha, double cuanto, boolean esDeposito) {
-    Movimiento movimiento = new Movimiento(fecha, cuanto, esDeposito);
+    var movimiento = new Movimiento(fecha, cuanto, esDeposito);
     movimientos.add(movimiento);
   }
 
