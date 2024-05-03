@@ -39,18 +39,18 @@ public class MonederoTest {
   @Test
   void MasDeTresDepositos() {
     assertThrows(MaximaCantidadDepositosException.class, () -> {
-          cuenta.poner(BigDecimal.valueOf(1500));
-          cuenta.poner(BigDecimal.valueOf(456));
-          cuenta.poner(BigDecimal.valueOf(1900));
-          cuenta.poner(BigDecimal.valueOf(245));
+      cuenta.poner(BigDecimal.valueOf(1500));
+      cuenta.poner(BigDecimal.valueOf(456));
+      cuenta.poner(BigDecimal.valueOf(1900));
+      cuenta.poner(BigDecimal.valueOf(245));
     });
   }
 
   @Test
   void ExtraerMasQueElSaldo() {
     assertThrows(SaldoMenorException.class, () -> {
-          cuenta.setSaldo(BigDecimal.valueOf(90));
-          cuenta.sacar(BigDecimal.valueOf(1001));
+      cuenta.setSaldo(BigDecimal.valueOf(90));
+      cuenta.sacar(BigDecimal.valueOf(1001));
     });
   }
 
